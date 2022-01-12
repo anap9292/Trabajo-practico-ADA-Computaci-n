@@ -1,31 +1,48 @@
-/*Ventana Modal Cargar venta*/
-//cargar Vendedoras
-let select = document.getElementById('select')
-const arr = ["Ada", "Grace", "Hedy", "Sheryl","Frida","Martina"]
-for(let i=0; i<arr.length; i++){
-    let option = document.createElement("OPTION")
-    txt = document.createTextNode(arr[i])
-    option.appendChild(txt)
-    select.insertBefore(option,select.lastChild)
+//array reutilizables
+const vendedorasNombres = ["Ada", "Grace", "Hedy", "Sheryl","Frida","Martina"]
+
+const ventas = [[1, new Date(2019, 1, 4), "Grace", "Centro", ["Monitor GPRS 3000", "Motherboard ASUS 1500"]], [2, new Date(2019, 0, 1), "Ada", "Centro", ["Monitor GPRS 3000", "Motherboard ASUS 1500"]], [3, new Date(2019, 0, 2), "Grace", "Caballito", ["Monitor ASC 543", "Motherboard MZI"]], [4, new Date(2019, 0, 10), "Ada", "Centro", ["Monitor ASC 543", "Motherboard ASUS 1200"]], [5, new Date(2019, 0, 12), "Grace", "Caballito", ["Monitor GPRS 3000", "Motherboard ASUS 1200"]]];
+console.log(ventas)
+const precios = [["Monitor GPRS 3000", 200], ['hola'], ["Motherboard ASUS 1500", 120], ["Monitor ASC 543", 250], ["Motherboard ASUS 1200", 100], ["Motherboard MZI", 30], ["HDD Toyiva", 90], ["HDD Wezter Dishital", 75], ["RAM Quinston", 110], ["RAM Quinston Fury", 230]];
+
+const sucursal = ["Centro", "Caballito", "Adrogué","Berazategui","hola"]
+/*-------------------------------------------Ventana Modal Cargar venta-------------*/
+
+
+
+//cargar Vendedoras en modal NUEVA VENTA ok
+let selectNuevaVenta = document.getElementById('selectnv')
+
+for(let i=0; i<vendedorasNombres.length; i++){
+    let optionNuevaVenta = document.createElement("OPTION")
+    selectNuevaVenta.appendChild(optionNuevaVenta)
+    optionNuevaVenta.innerText = `${vendedorasNombres[i]}` 
 }
-//cargar componentes
-let select1 = document.getElementById('select1')
-const componente = ["Monitor GPRS 3000", "Motherboard ASUS 1500", "Monitor ASC 543", "Motherboard ASUS 1200","Motherboard MZI","HDD Toyiva"]
-for(let i=0; i<componente.length; i++){
-    let option1 = document.createElement("OPTION")
-    txt1 = document.createTextNode(componente[i])
-    option1.appendChild(txt1)
-    select1.insertBefore(option1,select1.lastChild)
+
+//cargar componentes en modal NUEVA VENTA ok 
+//una funcion para para sumar los componentes y los precios.
+const selectComponenteNV = document.getElementById('select-componente-nv')
+const agregarComponentes=()=>{
+    for (let i = 0; i < precios.length; i++) {
+        const optionComponenteNV = document.createElement('option');
+        selectComponenteNV.appendChild(optionComponenteNV);
+        optionComponenteNV.innerText = `${precios[i][0]}`;
+    }
 }
-//cargar Sucursal
-let select2 = document.getElementById('select2')
-const sucursal = ["Centro", "Caballito", "Adrogué","Berazategui"]
+agregarComponentes()
+
+
+//cargar Sucursal en modal NUEVA VENTA ok
+
+let selectSucursalNV = document.getElementById('select-sucursal-nv')
+
 for(let i=0; i<sucursal.length; i++){
-    let option2 = document.createElement("OPTION")
-    txt2 = document.createTextNode(sucursal[i])
-    option2.appendChild(txt2)
-    select2.insertBefore(option2,select2.lastChild)
+    let optionNV = document.createElement("OPTION")
+    selectSucursalNV.appendChild(optionNV);
+    optionNV.innerText=`${sucursal[i]}`
 }
+
+/*--------------botones*/
 
 const btnCargarVenta = document.getElementById('btn-nueva-venta')
 const modalVenta = document.querySelector('.modal-container-ventas')
@@ -54,11 +71,12 @@ window.addEventListener('keydown',(e)=>{
 //cargar venta
 //no logro tomar el valor del option creado para poder imprimirlo en la tabla
 
-/*ventana modal editar venta*/
+/*-------------------------------------------------ventana modal editar venta*/
+//botones ventana editar
 const btnEditar = document.getElementById('abrir-editar')
 const btnCerraEditar = document.getElementById('btn-cerrar-editar')
 const modalEditar=document.querySelector('.modal-container-editar')
-//cerrar editar
+// boton cerrar editar
 btnCerraEditar.addEventListener('click', ()=>{
     modalEditar.style.display='none'
 
@@ -70,7 +88,7 @@ window.addEventListener('keydown',(e)=>{
       { modalEditar.style.display='none' }
       return false 
 })
-//abrir ventana editar
+//boton abrir ventana editar
 
 btnEditar.addEventListener('click',()=>{
     modalEditar.style.display='block'
@@ -78,11 +96,30 @@ btnEditar.addEventListener('click',()=>{
 })
 
 //cargar elementos en ventana modal editar
-//cargar Vendedoras
+//cargar Vendedoras ok
 let selectEditar = document.getElementById('select-editar')
-const arrayEditar = ["Ada", "Grace", "Hedy", "Sheryl","Frida","Martina"]
-for(let i=0; i<arrayEditar.length; i++){
+for(let i=0; i<vendedorasNombres.length; i++){
     let optionEditar = document.createElement("OPTION")
-    let texto= innerHTML.arrayEditar[i]
-    selectEditar.appendChild(texto)
+    selectEditar.appendChild(optionEditar)
+    optionEditar.innerText = `${vendedorasNombres[i]}`
+}
+
+//una funcion para para sumar los componentes y los precios. ok
+const componentesEdit=document.getElementById('componentes-edit')
+const agregarCompEdit = ()=>{
+    for (let i = 0; i < precios.length; i++) {
+        const optioComp = document.createElement('option');
+        componentesEdit.appendChild(optioComp);
+        optioComp.innerText = `${precios[i][0]}`;
+}
+}
+agregarCompEdit()
+
+//agregar sucursales a la ventana editar ventas. ok
+let selectSucursalEditVenta = document.getElementById('select-sucursal-editar')
+
+for(let i=0; i<sucursal.length; i++){
+    let optionSucursal = document.createElement("OPTION")
+    selectSucursalEditVenta.appendChild(optionSucursal);
+    optionSucursal.innerText=`${sucursal[i]}`
 }

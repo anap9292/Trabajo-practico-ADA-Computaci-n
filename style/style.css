@@ -105,7 +105,7 @@ main{
 }
 .ventana-modal{
     width: 20%;
-    height: 28em;
+    height: 30em;
     border: solid;
     margin: 5em auto;
     background-color: white;
@@ -115,7 +115,7 @@ main{
     color: rgb(3, 1, 1);
     font-family: 'Courier New', Courier, monospace;
     background-color: #5F9EA0;
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
 }
 .select-style{
     width: 100%;
