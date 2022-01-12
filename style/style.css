@@ -5,56 +5,88 @@
 
 }
 main{
-    background-color: blue;
+    background-color: rgb(200, 200, 241);
     height: 36em;
     padding-top: 4em;
+    font-family: 'Courier New', Courier, monospace;
 }
 .container-principal{
     
     display: flex;
     width: 80%;
     margin: 0 auto;
-    border: solid;
 }
 .box-1{
-    border:solid;
+    border-radius: 10px;
     height: 200px;
     width: 48.5%;
     margin: 8px;
     background-color: white;
 }
 .box-2{
-    border:solid;
+    border-radius: 10px;
     height: 200px;
     width: 48.5%;
     margin: 8px;
     background-color: white;
 }
 .box-3{
-    border:solid;
+    border-radius: 10px;
     height: 200px;
     width: 80%;
     margin: 8px auto;
     background-color: white;
 }
 #btn-nueva-venta{
-    border: none;
-    background-color: green;
+    background-color: rgb(18, 240, 18);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 3px;
+    border-radius: 8px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    cursor: pointer;
 }
 .encabezado{
     background-color: cadetblue;
     text-align: center;
+    height: 3em;
+    border-top-left-radius:10px ;
+    border-top-right-radius:10px ;
+
+}
+.encabezado>h1{
+    font-size: 2em;
 }
 .encabezado-granBox{
     background-color: cadetblue;
     display: flex;
     justify-content: space-between;
+    border-top-left-radius:10px ;
+    border-top-right-radius:10px ;
 }
 .ventas-general{
     width: 100%;
     text-align: center;
     background-color: white;
 
+}
+.encabezado-granBox>h1{
+    padding-left: 2em;
+    height: 1.5em;
+}
+#abrir-editar{
+   background-color: lightskyblue;
+   border-radius: 8px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    cursor: pointer;
+}
+#borrar-venta{
+    background-color: rgb(253, 130, 130);
+    border-radius: 8px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    cursor: pointer;
 }
 
 /*Ventana Modal venta*/
@@ -77,6 +109,13 @@ main{
     border: solid;
     margin: 5em auto;
     background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+.ventana-modal>h1{
+    color: rgb(3, 1, 1);
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #5F9EA0;
+    padding-bottom: 1em;
 }
 .select-style{
     width: 100%;
@@ -85,7 +124,8 @@ main{
 .titulo-modal{
     font-size: 2em;
     text-align: center;
-    color: blue;
+    color: rgb(0, 0, 0);
+    padding-top: 0.5em;
 }
 .date{
     width: 98%;
@@ -97,6 +137,23 @@ main{
 }
 .block{
     display: block;
+}
+.cancelar-modal{
+    background-color: rgb(255, 14, 14);
+    border-radius: 8px;
+    padding: 0.5em;
+    cursor: pointer;
+    margin-top: 2em;
+    color: white;
+
+}
+.guardar-venta{
+    background-color: rgb(1, 252, 14);
+    border-radius: 8px;
+    padding: 0.5em;
+    cursor: pointer;
+    margin-top: 2em;
+    
 }
 /*Ventana Modal editar venta*/
 .modal-container-editar{
@@ -117,5 +174,6 @@ main{
     border: solid;
     margin: 5em auto;
     background-color: white;
+    font-family: 'Courier New', Courier, monospace;
 
 }
